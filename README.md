@@ -11,7 +11,7 @@
 + 地址管理
 ***
 ### 实现效果
-![首页](../image_show/首页.png "首页")
+![首页](https://github.com/ZHANGhui-0126/snacksShopTest/raw/master/image_show/首页.PNG "首页")
 ![分类](../image_show/分类.png "分类")
 ![购物车](../image_show/购物车.png "购物车")
 ![个人中心](../image_show/个人中心.png "个人中心")
