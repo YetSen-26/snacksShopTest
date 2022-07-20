@@ -1,0 +1,34 @@
+<view class="main">
+    <view class="item-box">
+        <image src="{{'https://hanmashanghu.qiaomai365.com' + item.main_img_url}}" class="item-thumb"></image>
+        
+        <navigator open-type="switchTab" url="../cart/cart">
+            <view class="carts-icon {{scaleCart?'on':''}}">
+                <image src="/image/gouwuche.png"></image>
+                <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+            </view>
+        </navigator>
+        
+        <view class="item-operation">
+          <text class="item-operation-unadd" bindtap="unaddCount">-</text>
+            <text class="item-operation-num">数量  {{num}}</text>
+            <text class="item-operation-add" bindtap="addCount">+</text>
+            <text class="item-to-cart" bindtap="addToCart">加入购物车</text>
+            <image src="/image/goche.png"  class="item-cart-img" bindtap="{{isClick? 'addToCart' : ' '}}"></image>
+        </view>
+        <image wx:if="{{show}}" src="/image/gouwuche.png" class="to-carts-icon"></image>
+        <view class="item-stock">{{item.stock > 0 ? "有货" : "无货"}}</view>
+        <view class="item-title">{{item.name}}</view>
+        <view class="item-price">￥ {{item.price}}</view>
+    </view>
+    <view class="item-tab-box">
+        <view class="item-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
+        <view class="item-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
+        <view class="item-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
+        <view class="item-content">
+            <view wx:if="{{curIndex === 0}}">{{item.detail}}</view>
+            <view wx:if="{{curIndex === 1}}">{{item.parameter}}</view>
+            <view wx:if="{{curIndex === 2}}">{{item.service}}</view>
+        </view>
+    </view>
+</view>

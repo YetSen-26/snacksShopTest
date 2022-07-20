@@ -1,0 +1,24 @@
+<view class="main">
+  <navigator url="../address/address">
+    <view wx:if="{{hasAddress}}" class="orders-address">
+      <text class="orders-address-name">收货人: {{address.consignee}}</text>
+      <text class="orders-address-phone">电话: {{address.mobile}}</text>
+      <view class="orders-address-detail">{{address.address}}</view>
+    </view>
+    <view wx:else class="orders-no-address">添加收货地址</view>
+  </navigator>
+
+  <view class="orders-box">
+    <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+      <image class="orders-thumb" src="{{'https://hanmashanghu.qiaomai365.com' + item.main_img_url}}"></image>
+      <view class="orders-pro-name">{{item.name}}</view>
+      <view class="orders-pro-price">￥{{item.totalPrice}}</view>
+      <view class="orders-count-num">×{{item.count}}</view>
+    </view>
+  </view>
+
+  <view class="orders-footer">
+    <view class="orders-footer-total">付款合计：￥{{total}}</view>
+    <view class="orders-footer-btn" bindtap="toPay">去付款</view>
+  </view>
+</view>

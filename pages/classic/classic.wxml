@@ -1,0 +1,29 @@
+
+<view class="main">
+    <view class="categroy-left">
+        <view wx:for="{{detail}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+            bindtap="switchTab"
+            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+    </view>
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+         <block wx:for="{{detail}}" wx:for-index wx:key="idx">
+            <view id="{{'s'+item.id}}" class="cate-box">
+                <view class="cate-banner">
+                    <image src="{{'https://hanmashanghu.qiaomai365.com' + item.img.url}}"></image>
+                </view>
+                <view class="cate-title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="product">
+                    <view class="product-list" wx:for="{{classs[index]}}" wx:key="index" wx:for-item="val">
+                        <navigator url="../detail/detail?product_id={{val.id}}">
+                            <image src="{{'https://hanmashanghu.qiaomai365.com' + val.main_img_url}}"></image>
+                            <view class="classname"><text>{{val.name}}</text></view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block> 
+    </scroll-view>
+
+</view>

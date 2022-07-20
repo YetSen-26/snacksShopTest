@@ -1,0 +1,15 @@
+<!--pages/list/list.wxml-->
+<view class="main">
+  <view class="banner">
+        <image src="{{'https://hanmashanghu.qiaomai365.com' + pic}}"></image>
+    </view>
+  <view class="list-box">
+    <view class="newest-list" wx:for="{{products}}">
+      <navigator url="../detail/detail?product_id={{item.id}}">
+        <image src="{{'https://hanmashanghu.qiaomai365.com' + item.main_img_url}}"></image>
+        <view class="newest-text"><text>{{item.name}}</text></view>
+        <view class="newest-text"><text>{{item.price}}</text></view>
+      </navigator>
+    </view>
+  </view>
+</view>

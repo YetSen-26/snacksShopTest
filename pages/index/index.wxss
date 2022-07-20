@@ -1,0 +1,101 @@
+@import '../../pages/list/list.wxss';
+
+/* 轮播图 */
+.swiperContainer {
+  margin-top: 15rpx;
+  bottom: 8rpx;
+  position: relative;
+  margin-bottom: 12rpx;
+}
+
+.imageContainer {
+  width: 100%;
+  margin-top: 10rpx;
+  height: 350rpx;
+}
+
+.turnItem {
+  height: 340rpx;
+}
+
+.itemImg {
+  position: absolute;
+  width: 99%;
+  height: 300rpx;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+}
+
+.imgActive {
+  opacity: 1;
+  height: 340rpx;
+  margin-top: 0rpx;
+  transition: all .2s ease-in 0s;
+}
+
+/* 指示点修饰 */
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 25rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  margin: 0 8rpx;
+  width: 18rpx;
+  height: 18rpx;
+  background-color: rgb(233, 255, 247);
+  border-radius: 8rpx;
+  transition: all .5s;
+}
+
+.dot.active {
+  width: 24rpx;
+  background: #15eda3;
+}
+
+/* 轮播图到这里结束 */
+
+/* 精选 */
+.select-title{
+  width: 100%;
+  padding: 0 0 30rpx 0;
+  height: 30rpx;
+  color: #127780;
+  text-align: center;
+}
+.newest-title {
+  width: 100%;
+  padding: 30rpx 0 0rpx 0;
+  height: 40rpx;
+  color: #127780;
+  text-align: center;
+}
+.newest-title text,
+.select-title text{
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:normal;
+}
+.select-top-small {
+  width: 375rpx;
+  height: 375rpx;
+  float: left;
+}
+.select-bottom,
+.select-top {
+  width: 100%;
+  height: 375rpx;
+}
+.select-top-small image,
+.select-bottom image,
+.select-top-small navigator,
+.select-bottom navigator {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 精选结束 */

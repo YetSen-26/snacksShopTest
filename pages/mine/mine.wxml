@@ -1,0 +1,52 @@
+<!--pages/mine/mine.wxml-->
+<view wx:if="{{!isLogined}}" class="first">
+  <view class='header'>
+    <image src='https://636c-cloud1-1g8ynlo793b33c64-1309106795.tcb.qcloud.la/wx_login.png?sign=1eac53668a2446a318f1bf108115d134&t=1657608211'></image>
+  </view>
+  <view class='content'>
+    <view>申请获取以下权限</view>
+    <text>获得你的公开信息(昵称，头像等)</text>
+  </view>
+  <button class='bottom' type='primary' lang="zh_CN" bindtap="login">
+    授权登录
+  </button>
+</view>
+
+<view class="main" wx:else>
+  <view class="header-new">
+    <image src="{{avatarUrl}}" class="thumb"></image>
+    <text class="nickname">{{nickName}}</text>
+    <text class="about">关于我们</text>
+  </view>
+
+  <view class="address-box">
+    <view class="address-manage">
+      <navigator url="/pages/address/address">地址管理</navigator>
+    </view>
+    <view wx:if="{{hasAddress}}" class="address-list">
+      <view>{{address.consignee}}</view>
+      <view>{{address.mobile}}</view>
+      <view>{{address.address}}</view>
+    </view>
+  </view>
+  <view class="orders-box">
+    <view class="orders">我的订单</view>
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower" class="newsListView"  style="height: {{scrollHeight}}rpx;">
+      <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+        <view class="orders-number">订单编号：{{item.order_no}}</view>
+        <view class="orders-detail">
+          <image src="{{'https://hanmashanghu.qiaomai365.com' + item.snap_img}}"></image>
+          <view class="">{{item.snap_name}}</view>
+          <view class="">{{item.total_count}}</view>
+          <text class="orders-status">未付款</text>
+        </view>
+        <view class="orders-footer">
+          <text>实付：￥{{item.total_price}}</text>
+          <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+        </view>
+      </view>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+  </view>
+</view>

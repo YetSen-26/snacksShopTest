@@ -1,0 +1,50 @@
+<view class="J-shopping-cart-empty" hidden="{{iscart}}">
+  <view class="shopping-cart-empty">
+    <view class="bg"></view>
+    <image src="../../image/cry.png"></image>
+    <text class='empty-text'>购物车空空如也</text>
+  </view>
+</view>
+
+<view class="main" hidden="{{hidden}}">
+  <scroll-view class="scroll" scroll-y="true">
+    <view class="separate"></view>
+    <view class="cart-box">
+      <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+        <view wx:if="{{!item.isSelect}}">
+          <icon class="cart-pro-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" type="circle" size="20"></icon>
+        </view>
+        <view wx:elif="{{item.isSelect}}">
+          <icon class="cart-pro-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" type="success" color="#f0145a" size="20"></icon>
+        </view>
+        <navigator url="../detail/detail?product_id={{item.id}}">
+          <image class="cart-thumb" src="{{'https://hanmashanghu.qiaomai365.com' + item.main_img_url}}"></image>
+        </navigator>
+        <text class="cart-pro-name">{{item.name}}</text>
+        <text class="cart-pro-price">￥{{item.price}}</text>
+        <view class="cart-count-box">
+          <text class="cart-count-down" bindtap="delCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+          <text class="cart-count-num">{{item.count}}</text>
+          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+        </view>
+        <image class="cart-del" bindtap="delGoods" data-index="{{index}}" src="/image/delete.png"></image>
+      </view>
+    </view>
+
+    <view class="cart-footer">
+      <view wx:if="{{!isAllSelect}}">
+        <icon class="total-select" bindtap="allSelect" type="circle" size="20"></icon>
+      </view>
+      <view wx:elif="{{isAllSelect}}">
+        <icon class="total-select" bindtap="allSelect" type="success" color="#f0145a" size="20"></icon>
+      </view>
+      <view class="order-icon">
+        <navigator  bindtap="goBuy">
+          <image src="/image/buy.png"></image>
+        </navigator>
+      </view>
+      <text>全选</text>
+      <text class="cart-toatl-price">￥{{totalMoney}}</text>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,56 @@
+<view class="main">
+  <!-- 轮播图 -->
+  <view class="swiperContainer">
+    <swiper class="imageContainer" bindchange="swiperChange" previous-margin="55rpx" next-margin="50rpx" circular autoplay>
+      <block wx:for="{{items}}" wx:key="index">
+        <swiper-item class="turnItem">
+          <image class="itemImg {{index == swiperCurrent ? 'imgActive': ''}}" src="{{'https://hanmashanghu.qiaomai365.com' + item.img.url}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 指示点的修饰 -->
+    <view class="dots">
+      <block wx:for="{{items}}" wx:key="index">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
+  <view class="selected">
+    <view class="select-title">
+      <text>精选主题</text>
+    </view>
+    <view class="select-top">
+      <view class="select-top-small">
+        <navigator url="../list/list?item=1">
+          <image src="{{'https://hanmashanghu.qiaomai365.com' + theme_1.topic_img.url}}"></image>
+        </navigator>
+      </view>
+      <view class="select-top-small">
+        <navigator url="../list/list?item=2">
+          <image src="{{'https://hanmashanghu.qiaomai365.com' + theme_2.topic_img.url}}"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="select-bottom">
+      <navigator url="../list/list?item=3">
+        <image src="{{'https://hanmashanghu.qiaomai365.com' + theme_3.topic_img.url}}"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="newest">
+    <view class="newest-title">
+      <text>最近新品</text>
+    </view>
+    <view class="list-box">
+    <view class="newest-list" wx:for="{{products}}">
+      <navigator url="../detail/detail?product_id={{item.id}}">
+        <image src="{{'https://hanmashanghu.qiaomai365.com' + item.main_img_url}}"></image>
+        <view class="newest-text"><text>{{item.name}}</text></view>
+        <view class="newest-text"><text>{{item.price}}</text></view>
+      </navigator>
+    </view>
+  </view>
+  </view>
+</view>

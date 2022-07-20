@@ -1,0 +1,12 @@
+<view class="first">
+  <view class='header'>
+    <image src='https://636c-cloud1-1g8ynlo793b33c64-1309106795.tcb.qcloud.la/%E9%94%99%E8%AF%AF.png?sign=5d1a500838a13ca108a5faaed3798e47&t=1658220580'></image>
+  </view>
+  <view class='content'>
+    <view>支付失败</view>
+    <text>请稍后再进行尝试</text>
+  </view>
+  <button class='bottom' type='warn' lang="zh_CN" bindtap="toOrderDetail">
+    查看订单
+  </button>
+</view>
